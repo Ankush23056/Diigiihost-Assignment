@@ -1,0 +1,118 @@
+/* ─── Tailwind Layers ─────────────────────────────────── */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Base Resets & Defaults ─────────────────────────── */
+@layer base {
+  *,
+  *::before,
+  *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background-color: #FAF8F5; /* cream.DEFAULT */
+    color: #262626;            /* neutral.gray.800 */
+    line-height: 1.65;
+    overflow-x: hidden;
+  }
+
+  /* Editorial headings default to Playfair Display */
+  h1, h2, h3, h4 {
+    font-family: 'Playfair Display', Georgia, serif;
+    color: #0B3D2E; /* emerald.dark */
+    font-weight: 700;
+    line-height: 1.15;
+  }
+
+  h5, h6 {
+    font-family: 'Inter', system-ui, sans-serif;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #A88B4A; /* gold.dark */
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  ::selection {
+    background-color: #C8A96E; /* gold */
+    color: #0B3D2E;            /* emerald.dark */
+  }
+}
+
+/* ─── Utility Components ─────────────────────────────── */
+@layer components {
+  /* Section-level padding container */
+  .section-padding {
+    @apply px-6 py-20 md:px-10 lg:px-16 xl:px-20 lg:py-28;
+  }
+
+  /* Centered content wrapper */
+  .content-wrapper {
+    @apply mx-auto w-full max-w-content;
+  }
+
+  /* Gold accent underline for headings */
+  .gold-underline {
+    @apply relative inline-block;
+  }
+  .gold-underline::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-full h-[2px] bg-gold;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
+  }
+  .gold-underline:hover::after {
+    transform: scaleX(1);
+  }
+
+  /* Small uppercase label styling */
+  .label-text {
+    @apply text-label-md uppercase tracking-widest font-semibold;
+  }
+
+  /* Smooth section transitions for scroll-reveal */
+  .reveal-section {
+    @apply opacity-0 translate-y-8 transition-all duration-600;
+  }
+  .reveal-section.visible {
+    @apply opacity-100 translate-y-0;
+  }
+}
+
+/* ─── Custom Scrollbar ───────────────────────────────── */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #FAF8F5;
+}
+::-webkit-scrollbar-thumb {
+  background: #C8A96E;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #A88B4A;
+}
