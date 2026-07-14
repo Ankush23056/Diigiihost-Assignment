@@ -1,14 +1,8 @@
 import { motion } from 'framer-motion';
-import manifesto from '../../data/manifesto';
 
-/* ─── Variants ───────────────────────────────────────── */
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
-  visible: (i = 0) => ({
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.7, delay: i * 0.1, ease: [0.25, 0.1, 0.25, 1] },
-  }),
+  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.25, 0.1, 0.25, 1] } },
 };
 
 export default function Manifesto() {
@@ -16,42 +10,98 @@ export default function Manifesto() {
     <section id="manifesto" className="bg-emerald-dark section-padding text-white overflow-hidden">
       <div className="content-wrapper">
         <motion.div
-          className="max-w-[700px] mb-16 md:mb-24"
+          className="text-center mb-20 md:mb-32"
           variants={fadeUp}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: '-80px' }}
+          viewport={{ once: true, margin: '-100px' }}
         >
-          <p className="text-label-md uppercase tracking-[0.15em] text-gold mb-4">
-            The Manifesto
-          </p>
-          <h2 className="font-display text-display-md md:text-display-lg leading-tight">
-            Design isn't just how it looks. It's how it <span className="text-gold italic">connects</span>.
+          <h2 className="font-display text-display-md md:text-display-lg leading-tight text-gold">
+            The Brand Soul Manifesto
           </h2>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16">
-          {manifesto.map((item, i) => (
-            <motion.div
-              key={item.id}
-              className="relative pl-6 md:pl-8 border-l border-white/20 hover:border-gold transition-colors duration-400"
-              variants={fadeUp}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: '-60px' }}
-              custom={i + 1}
+        <div className="flex flex-col gap-24 md:gap-32">
+          
+          {/* Row 1: Graphic Left, Text Right */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center">
+            <motion.div 
+              className="order-2 md:order-1 relative aspect-square w-full max-w-sm mx-auto md:max-w-none md:mx-0"
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true, margin: '-100px' }}
             >
-              <div className="absolute left-0 top-0 -translate-x-[50%] -translate-y-2 bg-emerald-dark text-gold font-mono text-label-sm px-1 py-2">
-                {item.number}
-              </div>
-              <h3 className="font-display text-display-sm md:text-2xl mb-3 text-gold-light">
-                {item.title}
-              </h3>
-              <p className="text-body-md text-neutral-gray-300 font-sans leading-relaxed">
-                {item.body}
-              </p>
+              <img src="/images/manifesto_cube.png" alt="3D Geometric Cube" className="w-full h-full object-contain" />
             </motion.div>
-          ))}
+            <motion.div 
+              className="order-1 md:order-2"
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true, margin: '-100px' }}
+            >
+              <h3 className="font-display text-display-sm md:text-display-md leading-tight text-neutral-gray-100">
+                A BRAND is not a logo...<br/>
+                <span className="text-gold italic text-2xl md:text-3xl mt-4 block">It's a living, breathing entity.</span>
+              </h3>
+            </motion.div>
+          </div>
+
+          {/* Row 2: Text Left, Image Right */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center">
+            <motion.div 
+              className="order-1 md:order-1"
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true, margin: '-100px' }}
+            >
+              <h3 className="font-display text-display-sm md:text-display-md leading-tight text-neutral-gray-100">
+                A FOUNDER Is Not A Title...<br/>
+                <span className="text-gold italic text-2xl md:text-3xl mt-4 block">It's a lifelong commitment to creation.</span>
+              </h3>
+            </motion.div>
+            <motion.div 
+              className="order-2 md:order-2 w-full"
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true, margin: '-100px' }}
+            >
+              <div className="aspect-[16/9] md:aspect-[4/3] w-full overflow-hidden shadow-2xl border border-white/10">
+                <img src="/images/manifesto_creator.png" alt="Creator writing" className="w-full h-full object-cover" />
+              </div>
+            </motion.div>
+          </div>
+
+          {/* Row 3: Image Left, Text Right */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center">
+            <motion.div 
+              className="order-2 md:order-1"
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true, margin: '-100px' }}
+            >
+              <div className="aspect-square w-full overflow-hidden shadow-2xl border border-white/10">
+                <img src="/images/manifesto_team.png" alt="Team meeting" className="w-full h-full object-cover" />
+              </div>
+            </motion.div>
+            <motion.div 
+              className="order-1 md:order-2"
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true, margin: '-100px' }}
+            >
+              <h3 className="font-display text-display-sm md:text-display-md leading-tight text-neutral-gray-100">
+                And BUSINESS Is Not About The Market...<br/>
+                <span className="text-gold italic text-2xl md:text-3xl mt-4 block">It's about the people you serve.</span>
+              </h3>
+            </motion.div>
+          </div>
+
         </div>
       </div>
     </section>

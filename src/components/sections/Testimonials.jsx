@@ -1,113 +1,85 @@
-import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { useRef } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import testimonials from '../../data/testimonials';
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.7, ease: [0.25, 0.1, 0.25, 1] },
-  },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.25, 0.1, 0.25, 1] } },
 };
 
 export default function Testimonials() {
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  const nextTestimonial = () => {
-    setCurrentIndex((prev) => (prev + 1) % testimonials.length);
-  };
-
-  const prevTestimonial = () => {
-    setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
-  };
+  const scrollRef = useRef(null);
 
   return (
-    <section id="testimonials" className="bg-cream section-padding overflow-hidden">
+    <section id="testimonials" className="bg-cream section-padding overflow-hidden relative">
       <div className="content-wrapper">
         <motion.div
-          className="text-center mb-16 md:mb-20"
+          className="mb-16 md:mb-20"
           variants={fadeUp}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: '-80px' }}
+          viewport={{ once: true, margin: '-100px' }}
         >
           <p className="text-label-md uppercase tracking-[0.15em] text-gold mb-4">
-            The Impact
+            What People Say
           </p>
           <h2 className="font-display text-display-md md:text-display-lg text-emerald-dark leading-tight">
-            Don't just take our word for it.
+            Our Work Speaks For Itself.
           </h2>
         </motion.div>
 
-        <div className="max-w-4xl mx-auto relative">
-          <div className="min-h-[250px] md:min-h-[200px] flex items-center">
-            <AnimatePresence mode="wait">
+        {/* Horizontal scroll container */}
+        <div className="relative">
+          
+          {/* Circular Drag/Slide Badge */}
+          <div className="absolute top-1/2 -translate-y-1/2 -right-4 md:-right-8 z-10 pointer-events-none hidden md:flex items-center justify-center w-24 h-24 rounded-full bg-gold/90 text-white shadow-xl rotate-[-15deg] backdrop-blur-sm">
+            <span className="text-label-sm uppercase tracking-wider font-bold">Slide &rarr;</span>
+          </div>
+
+          <div 
+            ref={scrollRef}
+            className="flex gap-6 md:gap-8 overflow-x-auto pb-12 pt-4 px-4 -mx-4 scrollbar-hide snap-x snap-mandatory"
+            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+          >
+            {testimonials.map((testimonial, i) => (
               <motion.div
-                key={currentIndex}
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -20 }}
-                transition={{ duration: 0.4 }}
-                className="text-center w-full"
+                key={testimonial.id}
+                className="flex-shrink-0 w-[85vw] md:w-[600px] bg-white p-8 md:p-12 shadow-[0_20px_50px_rgba(0,0,0,0.05)] border border-neutral-gray-200 snap-center rounded-sm"
+                initial={{ opacity: 0, x: 50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, delay: i * 0.1 }}
+                viewport={{ once: true, margin: '-50px' }}
               >
-                <p className="font-display text-display-sm md:text-display-md text-neutral-gray-800 leading-relaxed mb-8 italic">
-                  "{testimonials[currentIndex].quote}"
+                <svg className="w-10 h-10 text-gold mb-6 opacity-40" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+                </svg>
+                
+                <p className="font-display text-xl md:text-2xl text-emerald-dark leading-relaxed mb-10 min-h-[120px]">
+                  {testimonial.quote}
                 </p>
-                <div className="flex flex-col items-center justify-center">
-                  <div className="w-16 h-16 rounded-full overflow-hidden mb-4 border-2 border-gold/30">
+                
+                <div className="flex items-center gap-4 mt-auto">
+                  <div className="w-14 h-14 rounded-full overflow-hidden border-2 border-gold/30 flex-shrink-0">
                     <img 
-                      src={testimonials[currentIndex].avatar} 
-                      alt={testimonials[currentIndex].author}
+                      src={testimonial.avatar} 
+                      alt={testimonial.author}
                       className="w-full h-full object-cover"
                     />
                   </div>
-                  <h4 className="text-label-md uppercase tracking-wider text-emerald-dark font-bold">
-                    {testimonials[currentIndex].author}
-                  </h4>
-                  <p className="text-body-sm text-neutral-gray-500 font-sans mt-1">
-                    {testimonials[currentIndex].role}, {testimonials[currentIndex].company}
-                  </p>
+                  <div>
+                    <h4 className="text-label-md uppercase tracking-wider text-emerald-dark font-bold">
+                      {testimonial.author}
+                    </h4>
+                    <p className="text-body-sm text-neutral-gray-500 font-sans mt-1">
+                      {testimonial.role}, {testimonial.company}
+                    </p>
+                  </div>
                 </div>
               </motion.div>
-            </AnimatePresence>
-          </div>
-
-          <div className="flex justify-center items-center gap-6 mt-12">
-            <button 
-              onClick={prevTestimonial}
-              className="w-12 h-12 rounded-full border border-neutral-gray-300 flex items-center justify-center text-neutral-gray-500 hover:border-gold hover:text-gold transition-colors duration-300"
-              aria-label="Previous testimonial"
-            >
-              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 19l-7-7 7-7" />
-              </svg>
-            </button>
-            
-            <div className="flex gap-2">
-              {testimonials.map((_, i) => (
-                <button
-                  key={i}
-                  onClick={() => setCurrentIndex(i)}
-                  className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
-                    i === currentIndex ? 'bg-gold w-6' : 'bg-neutral-gray-300'
-                  }`}
-                  aria-label={`Go to testimonial ${i + 1}`}
-                />
-              ))}
-            </div>
-
-            <button 
-              onClick={nextTestimonial}
-              className="w-12 h-12 rounded-full border border-neutral-gray-300 flex items-center justify-center text-neutral-gray-500 hover:border-gold hover:text-gold transition-colors duration-300"
-              aria-label="Next testimonial"
-            >
-              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 5l7 7-7 7" />
-              </svg>
-            </button>
+            ))}
           </div>
         </div>
+
       </div>
     </section>
   );

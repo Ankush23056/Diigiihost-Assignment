@@ -6,3 +6,4 @@ export { default as BrandSoulPhilosophy } from './BrandSoulPhilosophy';
 export { default as BrandList } from './BrandList';
 export { default as Manifesto } from './Manifesto';
 export { default as Testimonials } from './Testimonials';
+export { default as SoulBehindBrand } from './SoulBehindBrand';
