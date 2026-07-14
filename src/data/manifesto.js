@@ -13,7 +13,7 @@ const manifesto = [
     id: 2,
     number: '02',
     title: 'Authentic Identity',
-    body: 'We don't follow trends — we craft identities that resonate at a deeper level, rooted in your story and amplified by design.',
+    body: "We don't follow trends — we craft identities that resonate at a deeper level, rooted in your story and amplified by design.",
   },
   {
     id: 3,

@@ -6,6 +6,8 @@ import {
   TeamOrigin,
   BrandSoulPhilosophy,
   BrandList,
+  Manifesto,
+  Testimonials,
 } from './components/sections';
 
 /**
@@ -25,6 +27,10 @@ export default function App() {
       <TeamOrigin />
       <BrandSoulPhilosophy />
       <BrandList />
+      
+      {/* ── Proof & Philosophy ────────────────────────────── */}
+      <Manifesto />
+      <Testimonials />
     </Layout>
   );
 }
