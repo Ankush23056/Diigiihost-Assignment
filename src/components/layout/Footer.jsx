@@ -108,12 +108,12 @@ export default function Footer() {
             <div className="mt-6 h-[1px] w-16 bg-gold/40" />
           </motion.div>
 
-          {/* ── Center: Link Columns ───────────────────────── */}
+          {/* ── Center + Right: Link Columns ─────────────────── */}
           <motion.div
-            className="lg:col-span-4 grid grid-cols-2 gap-8"
+            className="lg:col-span-8 grid grid-cols-2 md:grid-cols-3 gap-8"
             variants={itemVariants}
           >
-            {/* Column 1 */}
+            {/* Column 1 — Navigate */}
             <div>
               <h6 className="text-label-sm uppercase tracking-widest text-gold mb-5">
                 Navigate
@@ -132,7 +132,7 @@ export default function Footer() {
               </ul>
             </div>
 
-            {/* Column 2 */}
+            {/* Column 2 — Explore */}
             <div>
               <h6 className="text-label-sm uppercase tracking-widest text-gold mb-5">
                 Explore
@@ -150,44 +150,26 @@ export default function Footer() {
                 ))}
               </ul>
             </div>
-          </motion.div>
 
-          {/* ── Right: Socials ─────────────────────────────── */}
-          <motion.div
-            className="lg:col-span-4 lg:flex lg:flex-col lg:items-end"
-            variants={itemVariants}
-          >
-            <h6 className="text-label-sm uppercase tracking-widest text-gold mb-5">
-              Connect
-            </h6>
-            <div className="flex items-center gap-4">
-              {socials.map((social) => (
-                <a
-                  key={social.label}
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={social.label}
-                  className="group flex items-center justify-center w-10 h-10 rounded-full border border-neutral-gray-700 text-neutral-gray-400 hover:border-gold hover:text-gold hover:bg-gold/10 transition-all duration-300"
-                >
-                  {social.icon}
-                </a>
-              ))}
-            </div>
-
-            {/* Compact social label list below icons */}
-            <div className="mt-4 flex flex-wrap gap-x-4 gap-y-1 lg:justify-end">
-              {socials.map((social) => (
-                <a
-                  key={`${social.label}-text`}
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-label-sm uppercase tracking-wider text-neutral-gray-500 hover:text-gold transition-colors duration-300"
-                >
-                  {social.label}
-                </a>
-              ))}
+            {/* Column 3 — Connect (social text links) */}
+            <div>
+              <h6 className="text-label-sm uppercase tracking-widest text-gold mb-5">
+                Connect
+              </h6>
+              <ul className="flex flex-col gap-3">
+                {socials.map((social) => (
+                  <li key={social.label}>
+                    <a
+                      href={social.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-body-sm text-neutral-gray-300 hover:text-gold transition-colors duration-300 lowercase"
+                    >
+                      {social.label.toLowerCase()}
+                    </a>
+                  </li>
+                ))}
+              </ul>
             </div>
           </motion.div>
         </div>
