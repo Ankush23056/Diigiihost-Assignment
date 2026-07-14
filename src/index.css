@@ -116,3 +116,12 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #A88B4A;
 }
+
+/* ─── Scrollbar Hide Utility ─────────────────────────── */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
