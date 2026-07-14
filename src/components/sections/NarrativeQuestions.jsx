@@ -7,7 +7,7 @@ const questions = [
     number: '01',
     question: 'Why do most brands look the same — polished but empty, loud but forgettable?',
     context:
-      'Every scroll, every swipe — the same templates, the same stock photos, the same hollow promises. I wondered: where's the soul?',
+      'Every scroll, every swipe — the same templates, the same stock photos, the same hollow promises. I wondered: where\'s the soul?',
   },
   {
     id: 2,
