@@ -9,6 +9,8 @@ import {
   SoulBehindBrand,
   Manifesto,
   Testimonials,
+  NextChapter,
+  BottomBanner,
 } from './components/sections';
 
 /**
@@ -33,6 +35,10 @@ export default function App() {
       <SoulBehindBrand />
       <Manifesto />
       <Testimonials />
+
+      {/* ── CTA ───────────────────────────────────────────── */}
+      <NextChapter />
+      <BottomBanner />
     </Layout>
   );
 }

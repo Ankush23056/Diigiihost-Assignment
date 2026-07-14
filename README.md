@@ -1,16 +1,43 @@
-# React + Vite
+# Diigiihost Assignment
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+A modern, high-performance landing page for Alkesh Gupta / Diigiihost built with React, Vite, Tailwind CSS, and Framer Motion.
 
-Currently, two official plugins are available:
+## 🎨 Design System
+- **Colors**: Deep Emerald Dark Green, Gold Accents, Off-White/Cream, Pure White
+- **Typography**: Display/Editorial headings (Playfair Display / Serif-inspired), clean Sans-serif body
+- **Architecture**: Modular component structure (Layout, Sections, UI)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## ✨ Features
+- **Responsive Layout**: Fully optimized for mobile, tablet, and desktop viewports.
+- **Micro-Animations**: Framer Motion `whileInView` scroll reveals, staggered entry animations, and hover interactions.
+- **Horizontal Carousels**: Native CSS snap-scrolling for the gallery and testimonials slider with custom drag indicators.
+- **Semantic Structure**: Semantic HTML5 sectioning and accessible button/link elements.
 
-## React Compiler
+## 🚀 Getting Started
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+First, install dependencies:
+```bash
+npm install
+```
 
-## Expanding the Oxlint configuration
+Start the development server:
+```bash
+npm run dev
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+Build for production:
+```bash
+npm run build
+```
+
+## 📁 Directory Structure
+```
+src/
+├── components/
+│   ├── layout/       # Navbar, Footer, Section wrappers
+│   ├── sections/     # Individual page sections (Hero, Manifesto, etc.)
+│   └── ui/           # Reusable atomic components (Button, Badge)
+├── data/             # Mock datasets for testimonials, brands, etc.
+├── index.css         # Global Tailwind configuration and custom utilities
+└── App.jsx           # Main component assembling the layout
+```

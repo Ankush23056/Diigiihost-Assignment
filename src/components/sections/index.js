@@ -7,3 +7,5 @@ export { default as BrandList } from './BrandList';
 export { default as Manifesto } from './Manifesto';
 export { default as Testimonials } from './Testimonials';
 export { default as SoulBehindBrand } from './SoulBehindBrand';
+export { default as NextChapter } from './NextChapter';
+export { default as BottomBanner } from './BottomBanner';
