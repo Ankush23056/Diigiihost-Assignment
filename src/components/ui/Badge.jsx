@@ -1,12 +1,3 @@
-/**
- * Badge — small label element for tags, categories, and status indicators.
- *
- * Variants:
- *  • gold    — gold background, dark text
- *  • outline — bordered with gold text
- *  • dark    — emerald background, white text
- *  • light   — cream background, muted text
- */
 
 const variantStyles = {
   gold:    'bg-gold-light text-emerald-dark',

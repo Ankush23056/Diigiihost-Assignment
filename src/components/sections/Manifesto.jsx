@@ -23,7 +23,6 @@ export default function Manifesto() {
 
         <div className="flex flex-col gap-24 md:gap-32">
           
-          {/* Row 1: Graphic Left, Text Right */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center">
             <motion.div 
               className="order-2 md:order-1 relative aspect-square w-full max-w-sm mx-auto md:max-w-none md:mx-0"
@@ -48,7 +47,6 @@ export default function Manifesto() {
             </motion.div>
           </div>
 
-          {/* Row 2: Text Left, Image Right */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center">
             <motion.div 
               className="order-1 md:order-1"
@@ -75,7 +73,6 @@ export default function Manifesto() {
             </motion.div>
           </div>
 
-          {/* Row 3: Image Left, Text Right */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center">
             <motion.div 
               className="order-2 md:order-1"

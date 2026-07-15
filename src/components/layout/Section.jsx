@@ -1,9 +1,3 @@
-/**
- * Section — reusable wrapper for each landing-page section.
- *
- * Handles consistent padding, optional dark/accent backgrounds,
- * and centered content constraining.
- */
 import { forwardRef } from 'react';
 import { motion } from 'framer-motion';
 

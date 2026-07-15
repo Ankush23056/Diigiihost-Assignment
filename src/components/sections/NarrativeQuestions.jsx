@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion';
 
-/* ─── Question data ──────────────────────────────────── */
 const questions = [
   {
     id: 1,
@@ -18,7 +17,6 @@ const questions = [
   },
 ];
 
-/* ─── Variants ───────────────────────────────────────── */
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
   visible: (i = 0) => ({
@@ -36,13 +34,6 @@ const lineGrow = {
   },
 };
 
-/**
- * NarrativeQuestions — editorial section transitioning from hero.
- *
- * Layout:
- *  • Left: Large editorial heading (journey & questions)
- *  • Right: Numbered question cards with context copy
- */
 export default function NarrativeQuestions() {
   return (
     <section
@@ -51,7 +42,6 @@ export default function NarrativeQuestions() {
     >
       <div className="content-wrapper">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-          {/* ── Left: Editorial Heading ───────────────────── */}
           <motion.div
             className="lg:col-span-5"
             variants={fadeUp}
@@ -82,7 +72,6 @@ export default function NarrativeQuestions() {
             </h2>
           </motion.div>
 
-          {/* ── Right: Question Blocks ────────────────────── */}
           <div className="lg:col-span-7 lg:pl-8 flex flex-col gap-10">
             {questions.map((q, i) => (
               <motion.div
@@ -94,17 +83,14 @@ export default function NarrativeQuestions() {
                 viewport={{ once: true, margin: '-60px' }}
                 custom={i + 1}
               >
-                {/* Number badge */}
                 <span className="absolute -left-[1px] top-0 -translate-x-1/2 bg-cream px-1 text-label-sm text-gold font-semibold">
                   {q.number}
                 </span>
 
-                {/* Question */}
                 <h3 className="font-display text-display-sm md:text-[1.65rem] text-emerald-dark leading-snug">
                   {q.question}
                 </h3>
 
-                {/* Context */}
                 <p className="mt-4 text-body-md text-neutral-gray-500 font-sans leading-relaxed max-w-[580px]">
                   {q.context}
                 </p>

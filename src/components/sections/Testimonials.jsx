@@ -28,10 +28,8 @@ export default function Testimonials() {
           </h2>
         </motion.div>
 
-        {/* Horizontal scroll container */}
         <div className="relative">
           
-          {/* Circular Drag/Slide Badge */}
           <div className="absolute top-1/2 -translate-y-1/2 -right-4 md:-right-8 z-10 pointer-events-none hidden md:flex items-center justify-center w-24 h-24 rounded-full bg-gold/90 text-white shadow-xl rotate-[-15deg] backdrop-blur-sm">
             <span className="text-label-sm uppercase tracking-wider font-bold">Slide &rarr;</span>
           </div>

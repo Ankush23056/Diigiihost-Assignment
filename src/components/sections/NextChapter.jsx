@@ -45,7 +45,6 @@ export default function NextChapter() {
               Who Want To Grow With <span className="text-emerald-dark">Purpose</span>...
             </h2>
             
-            {/* Custom circular floating accent badge anchor */}
             <div className="absolute -right-4 md:-right-12 -top-12 md:-top-16 z-20">
               <a href="#contact" className="group flex items-center justify-center w-28 h-28 md:w-32 md:h-32 rounded-full bg-emerald-dark hover:bg-gold transition-colors duration-300 text-white shadow-2xl rotate-[15deg] hover:rotate-0">
                 <span className="text-label-sm uppercase tracking-widest font-bold text-center leading-tight">

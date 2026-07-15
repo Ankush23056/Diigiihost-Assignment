@@ -1,15 +1,8 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Button } from '../ui';
+import { navLinks } from '../../data/navigation';
 
-/* ─── Navigation Links ───────────────────────────────── */
-const navLinks = [
-  { label: 'Brand Soul', href: '#brand-soul' },
-  { label: 'Building For Bharat', href: '#building-for-bharat' },
-  { label: 'Learn with AG', href: '#learn-with-ag' },
-];
-
-/* ─── Framer Motion Variants ─────────────────────────── */
 const mobileMenuVariants = {
   closed: {
     opacity: 0,
@@ -28,7 +21,6 @@ const mobileLinkVariants = {
   open: { opacity: 1, x: 0, transition: { duration: 0.3 } },
 };
 
-/* ─── Hamburger Icon (animated 3-line → X) ───────────── */
 function HamburgerIcon({ isOpen }) {
   const lineBase =
     'block h-[2px] w-6 rounded-full bg-emerald-dark transition-all duration-300 ease-smooth';
@@ -52,19 +44,16 @@ function HamburgerIcon({ isOpen }) {
   );
 }
 
-/* ─── Navbar Component ───────────────────────────────── */
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
-  /* Track scroll for backdrop blur / shadow */
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  /* Lock body scroll when mobile menu is open */
   useEffect(() => {
     document.body.style.overflow = mobileOpen ? 'hidden' : '';
     return () => { document.body.style.overflow = ''; };
@@ -83,7 +72,6 @@ export default function Navbar() {
       `}
     >
       <nav className="content-wrapper flex items-center justify-between px-6 md:px-10 lg:px-16 xl:px-20 py-4 lg:py-5">
-        {/* ── Logo ────────────────────────────────────────── */}
         <a
           href="#"
           className="relative z-50 font-display text-[1.5rem] font-bold tracking-tight text-emerald-dark select-none"
@@ -91,7 +79,6 @@ export default function Navbar() {
           ALKESH
         </a>
 
-        {/* ── Desktop Center Links ────────────────────────── */}
         <ul className="hidden lg:flex items-center gap-10">
           {navLinks.map((link) => (
             <li key={link.href}>
@@ -105,14 +92,12 @@ export default function Navbar() {
           ))}
         </ul>
 
-        {/* ── Desktop CTA ─────────────────────────────────── */}
         <div className="hidden lg:block">
           <Button variant="outline" size="sm">
             Work With Me
           </Button>
         </div>
 
-        {/* ── Mobile Hamburger Toggle ─────────────────────── */}
         <button
           type="button"
           aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
@@ -123,7 +108,6 @@ export default function Navbar() {
         </button>
       </nav>
 
-      {/* ── Mobile Full-Screen Overlay ────────────────────── */}
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
@@ -158,7 +142,6 @@ export default function Navbar() {
               </Button>
             </motion.div>
 
-            {/* Decorative gold line */}
             <motion.div
               variants={mobileLinkVariants}
               className="mt-16 h-[1px] w-24 bg-gold/40"

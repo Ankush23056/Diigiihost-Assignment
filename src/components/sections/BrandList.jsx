@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import portfolioBrands from '../../data/portfolioBrands';
 
-/* ─── Variants ───────────────────────────────────────── */
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
   visible: (i = 0) => ({
@@ -28,22 +27,12 @@ const thumbnailVariants = {
   },
 };
 
-/**
- * BrandList — large editorial brand portfolio section.
- *
- * Features:
- *  • Bold two-line heading
- *  • "Brands That Carry My Soul" sub-label
- *  • Divider-separated brand list with hover thumbnail preview
- *  • Featured item (Diigiihost) shows persistent thumbnail
- */
 export default function BrandList() {
   const [hoveredId, setHoveredId] = useState(null);
 
   return (
     <section id="brand-list" className="bg-cream section-padding overflow-hidden">
       <div className="content-wrapper">
-        {/* ── Header ──────────────────────────────────────── */}
         <motion.div
           className="mb-16 md:mb-20"
           variants={fadeUp}
@@ -66,9 +55,7 @@ export default function BrandList() {
           </div>
         </motion.div>
 
-        {/* ── Brand List ──────────────────────────────────── */}
         <div className="relative">
-          {/* Top border */}
           <div className="h-[1px] w-full bg-neutral-gray-200" />
 
           {portfolioBrands.map((brand, i) => (
@@ -85,30 +72,25 @@ export default function BrandList() {
                 onMouseEnter={() => setHoveredId(brand.id)}
                 onMouseLeave={() => setHoveredId(null)}
               >
-                {/* Number */}
                 <div className="md:col-span-1 hidden md:block">
                   <span className="text-label-sm text-neutral-gray-400 font-mono">
                     {String(i + 1).padStart(2, '0')}
                   </span>
                 </div>
 
-                {/* Brand Name */}
                 <div className="md:col-span-4">
                   <h3 className="font-display text-display-sm md:text-[1.6rem] text-emerald-dark group-hover:text-gold transition-colors duration-300 leading-tight">
                     {brand.name}
                   </h3>
                 </div>
 
-                {/* Subtitle */}
                 <div className="md:col-span-4">
                   <p className="text-body-sm text-neutral-gray-500 font-sans">
                     {brand.subtitle}
                   </p>
                 </div>
 
-                {/* Arrow / Indicator */}
                 <div className="md:col-span-3 flex items-center justify-end gap-3">
-                  {/* Featured badge for first item */}
                   {brand.featured && (
                     <span className="inline-flex items-center px-2.5 py-1 rounded-full text-label-sm uppercase tracking-wider bg-gold/15 text-gold border border-gold/20">
                       Featured
@@ -130,7 +112,6 @@ export default function BrandList() {
                   </motion.svg>
                 </div>
 
-                {/* ── Hover Thumbnail (featured item shows persistent) ── */}
                 <AnimatePresence>
                   {(brand.featured || hoveredId === brand.id) && brand.thumbnail && (
                     <motion.div
@@ -155,7 +136,6 @@ export default function BrandList() {
           ))}
         </div>
 
-        {/* ── Bottom Summary ──────────────────────────────── */}
         <motion.div
           className="mt-12 md:mt-16 flex flex-col md:flex-row items-start md:items-center justify-between gap-4"
           variants={fadeUp}

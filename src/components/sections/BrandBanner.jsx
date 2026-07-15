@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion';
 
-/* ─── Variants ───────────────────────────────────────── */
 const imageReveal = {
   hidden: { opacity: 0, scale: 1.04 },
   visible: {
@@ -19,15 +18,6 @@ const textReveal = {
   }),
 };
 
-/**
- * BrandBanner — full-width stylized room/office image block.
- *
- * Features:
- *  • Centered background image of a premium workspace
- *  • Overlaid typography: "DIIGIIHOST BRAND SOUL, FOUND"
- *  • Consistent vertical spacing above and below
- *  • Subtle parallax-like scale on scroll enter
- */
 export default function BrandBanner() {
   return (
     <section
@@ -35,7 +25,6 @@ export default function BrandBanner() {
       className="py-16 md:py-24 lg:py-30 bg-cream"
     >
       <div className="content-wrapper px-6 md:px-10 lg:px-16 xl:px-20">
-        {/* ── Image Container ─────────────────────────────── */}
         <motion.div
           className="relative w-full overflow-hidden rounded-xl md:rounded-2xl"
           variants={imageReveal}
@@ -43,7 +32,6 @@ export default function BrandBanner() {
           whileInView="visible"
           viewport={{ once: true, margin: '-100px' }}
         >
-          {/* Background Image */}
           <div className="relative aspect-[16/7] md:aspect-[16/6] lg:aspect-[21/9]">
             <img
               src="/images/brand-banner-room.png"
@@ -51,13 +39,10 @@ export default function BrandBanner() {
               className="absolute inset-0 h-full w-full object-cover"
             />
 
-            {/* Dark overlay for text readability */}
             <div className="absolute inset-0 bg-emerald-dark/55" />
             <div className="absolute inset-0 bg-gradient-to-t from-emerald-dark/70 via-transparent to-emerald-dark/30" />
 
-            {/* ── Typography Overlay ──────────────────────── */}
             <div className="absolute inset-0 flex flex-col items-center justify-center px-6 text-center">
-              {/* Top label */}
               <motion.p
                 className="text-label-sm md:text-label-md uppercase tracking-[0.25em] text-gold-light/70 mb-3 md:mb-5"
                 variants={textReveal}
@@ -69,7 +54,6 @@ export default function BrandBanner() {
                 Where identity meets intention
               </motion.p>
 
-              {/* Main title lines */}
               <motion.h2
                 className="font-display text-display-md md:text-display-lg lg:text-display-xl text-white leading-[1.1] tracking-tight"
                 variants={textReveal}

@@ -1,7 +1,3 @@
-/**
- * Manifesto / value-proposition pillars.
- * Each item represents a core principle displayed in an editorial grid.
- */
 const manifesto = [
   {
     id: 1,

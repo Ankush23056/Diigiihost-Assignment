@@ -1,14 +1,5 @@
 import { motion } from 'framer-motion';
 
-/**
- * Button — primary interactive element.
- *
- * Variants:
- *  • primary  — gold background, dark text
- *  • outline  — transparent with gold border
- *  • dark     — emerald background, white text
- *  • ghost    — no background, subtle hover
- */
 
 const variantStyles = {
   primary:

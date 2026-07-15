@@ -11,7 +11,6 @@ export default function SoulBehindBrand() {
       <div className="content-wrapper">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           
-          {/* Text Left */}
           <motion.div
             variants={fadeUp}
             initial="hidden"
@@ -41,7 +40,6 @@ export default function SoulBehindBrand() {
             </div>
           </motion.div>
 
-          {/* Portrait Right */}
           <motion.div
             className="relative lg:ml-auto w-full max-w-md mx-auto lg:max-w-none"
             initial={{ opacity: 0, scale: 0.95 }}
@@ -49,10 +47,8 @@ export default function SoulBehindBrand() {
             transition={{ duration: 1, ease: [0.25, 0.1, 0.25, 1] }}
             viewport={{ once: true, margin: '-100px' }}
           >
-            {/* Fine Golden Border Frame */}
             <div className="absolute inset-0 -translate-x-4 translate-y-4 border border-gold/40 z-0"></div>
             
-            {/* Image Container */}
             <div className="relative z-10 bg-emerald-dark aspect-[4/5] overflow-hidden shadow-2xl">
               <img 
                 src="/images/alkesh.png" 
@@ -61,7 +57,6 @@ export default function SoulBehindBrand() {
               />
             </div>
             
-            {/* Decorative Element */}
             <div className="absolute -bottom-6 -left-6 w-24 h-24 bg-gold/10 rounded-full blur-2xl -z-10"></div>
           </motion.div>
 

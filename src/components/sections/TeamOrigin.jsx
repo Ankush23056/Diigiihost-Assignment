@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion';
 
-/* ─── Gallery images ─────────────────────────────────── */
 const teamPhotos = [
   { id: 1, src: '/images/team-1.png', alt: 'Team collaborating at desk' },
   { id: 2, src: '/images/team-2.png', alt: 'Brainstorming session' },
@@ -9,7 +8,6 @@ const teamPhotos = [
   { id: 5, src: '/images/team-5.png', alt: 'Creative studio workshop' },
 ];
 
-/* ─── Variants ───────────────────────────────────────── */
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
   visible: (i = 0) => ({
@@ -28,14 +26,10 @@ const imageReveal = {
   }),
 };
 
-/**
- * TeamOrigin — centered narrative paragraph + horizontal photo gallery.
- */
 export default function TeamOrigin() {
   return (
     <section id="team-origin" className="bg-cream section-padding">
       <div className="content-wrapper">
-        {/* ── Centered Narrative Text ─────────────────────── */}
         <motion.div
           className="max-w-narrow mx-auto text-center mb-16 md:mb-20"
           variants={fadeUp}
@@ -59,9 +53,7 @@ export default function TeamOrigin() {
           </p>
         </motion.div>
 
-        {/* ── Horizontal Photo Gallery ────────────────────── */}
         <div className="relative">
-          {/* Desktop: 5-column grid / Mobile: horizontal scroll */}
           <div className="flex gap-3 md:gap-4 overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-hide md:grid md:grid-cols-5 md:overflow-visible md:pb-0">
             {teamPhotos.map((photo, i) => (
               <motion.div
@@ -80,14 +72,12 @@ export default function TeamOrigin() {
                     className="h-full w-full object-cover transition-transform duration-600 ease-smooth group-hover:scale-105"
                     loading="lazy"
                   />
-                  {/* Subtle gradient on hover */}
                   <div className="absolute inset-0 bg-emerald-dark/0 group-hover:bg-emerald-dark/15 transition-colors duration-400" />
                 </div>
               </motion.div>
             ))}
           </div>
 
-          {/* Mobile scroll hint */}
           <div className="flex justify-center mt-4 gap-1.5 md:hidden">
             {teamPhotos.map((photo) => (
               <div

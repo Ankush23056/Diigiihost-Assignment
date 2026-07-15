@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion';
 
-/* ─── Card Data ──────────────────────────────────────── */
 const philosophyCards = [
   {
     id: 1,
@@ -31,7 +30,6 @@ const philosophyCards = [
   },
 ];
 
-/* ─── Variants ───────────────────────────────────────── */
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
   visible: (i = 0) => ({
@@ -41,14 +39,10 @@ const fadeUp = {
   }),
 };
 
-/**
- * BrandSoulPhilosophy — 3-card grid showcasing the Soul/Science/Scale methodology.
- */
 export default function BrandSoulPhilosophy() {
   return (
     <section id="brand-soul" className="bg-cream-warm section-padding overflow-hidden">
       <div className="content-wrapper">
-        {/* ── Header ──────────────────────────────────────── */}
         <motion.div
           className="max-w-narrow mx-auto text-center mb-14 md:mb-20"
           variants={fadeUp}
@@ -69,7 +63,6 @@ export default function BrandSoulPhilosophy() {
           </p>
         </motion.div>
 
-        {/* ── 3-Card Grid ─────────────────────────────────── */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
           {philosophyCards.map((card, i) => (
             <motion.div
@@ -81,7 +74,6 @@ export default function BrandSoulPhilosophy() {
               viewport={{ once: true, margin: '-60px' }}
               custom={i + 1}
             >
-              {/* Background Image */}
               <div className="relative aspect-[3/4] md:aspect-[4/5]">
                 <img
                   src={card.image}
@@ -90,25 +82,19 @@ export default function BrandSoulPhilosophy() {
                   loading="lazy"
                 />
 
-                {/* Gradient overlay */}
                 <div className={`absolute inset-0 bg-gradient-to-t ${card.color}`} />
 
-                {/* Content overlay */}
                 <div className="absolute inset-0 flex flex-col justify-end p-6 md:p-8">
-                  {/* Label */}
                   <p className="text-label-sm uppercase tracking-[0.15em] text-gold-light/80 mb-2">
                     {card.label}
                   </p>
 
-                  {/* Title */}
                   <h3 className="font-display text-display-md md:text-display-lg text-white leading-none mb-3">
                     {card.title}
                   </h3>
 
-                  {/* Gold line */}
                   <div className="h-[1px] w-10 bg-gold/50 mb-4 transition-all duration-400 group-hover:w-16 group-hover:bg-gold" />
 
-                  {/* Description */}
                   <p className="text-body-sm text-neutral-gray-200/90 font-sans leading-relaxed max-w-[280px]">
                     {card.description}
                   </p>

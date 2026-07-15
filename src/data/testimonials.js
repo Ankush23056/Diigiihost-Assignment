@@ -1,6 +1,3 @@
-/**
- * Client testimonials / social proof.
- */
 const testimonials = [
   {
     id: 1,

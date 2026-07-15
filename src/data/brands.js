@@ -1,7 +1,3 @@
-/**
- * Mock brand / partner logos.
- * Replace `logo` with actual SVGs or image paths as the design matures.
- */
 const brands = [
   { id: 1, name: 'Aurelia Studios',   logo: '/brands/aurelia.svg' },
   { id: 2, name: 'Vellure',           logo: '/brands/vellure.svg' },

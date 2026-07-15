@@ -1,7 +1,3 @@
-/**
- * Portfolio brand data — used by the BrandList section.
- * Each entry represents a brand built by Alkesh / Diigiihost.
- */
 const portfolioBrands = [
   {
     id: 1,
